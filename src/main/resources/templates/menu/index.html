@@ -11,7 +11,7 @@
         <p th:unless="${menu} and ${menu.size()}">no menu yet :(</p>
 
         <ul th:each = "item : ${menu}">
-            <li ><a th:href="'/menu/view' + ${item.id}" th:text="${item.name}"></a></li>
+            <li ><a th:href="'/menu/view/' + ${item.id}" th:text="${item.name}"></a></li>
         </ul><br/>
         <button><a href = "/menu/add">Add Menu</a> </button>
 
