@@ -7,10 +7,15 @@
         <nav th:replace="fragments :: navigation"></nav>
 
         <form method="post" style="max-width:600px;" th:object="${form}">
-            <label th:for="cheeseId">Cheeses</label>
-            <select name="cheeseId">
-                <opiton th:each="cheese : ${cheeses}" th:value="${cheese.id}" th:text="${cheese.name}"></opiton>
-            </select>
+            <div class="form-group">
+                <label th:for="cheeseId">Cheeses</label>
+                <select th:name="cheeseId">
+                    <option th:each="cheese : ${form.cheeses}"
+                            th:text="${cheese.name}"
+                            th:value="${cheese.id}"></option>
+                </select>
+
+            </div>
             <input type="hidden" name="menuId" th:value="*{menu.id}" />
             <input type="submit" value="Add cheese"/>
         </form>
